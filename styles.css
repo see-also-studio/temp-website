@@ -2,7 +2,7 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
-  background: url(cat.gif) no-repeat center 33% fixed; 
+  background: url('https://media0.giphy.com/media/IMDSOJvLn9RaU/giphy.gif') no-repeat center 33% fixed; 
   background-size: cover;
 }
 #email {
