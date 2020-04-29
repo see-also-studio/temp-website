@@ -1,0 +1,115 @@
+/* Created by Doll */
+body {
+margin:0;
+padding:0;
+overflow:hidden;
+background-color:black;
+}
+section{
+height:100%;
+width:100%;
+  position:absolute ;  background:radial-gradient(#333,#000);
+}
+.plant{
+    position:absolute ;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+}
+.plant div{
+position:absolute ;
+display:block ;
+}
+.plant div:nth-child(1){
+    left:20%; 
+    animation:fall 15s linear infinite ;
+    animation-delay:-2s;
+
+}
+.plant div:nth-child(2){
+    left:70%; 
+    animation:fall 15s linear infinite ;
+    animation-delay:-4s;
+}
+.plant div:nth-child(3){
+    left:10%; 
+    animation:fall 20s linear infinite ;
+    animation-delay:-7s;
+    
+}
+.plant div:nth-child(4){
+    left:50%; 
+   animation:fall 18s linear infinite ; 
+   animation-delay:-5s;
+}
+.plant div:nth-child(5){
+    left:85%; 
+    animation:fall 14s linear infinite ;
+    animation-delay:-5s;
+}
+.plant div:nth-child(6){
+    left:65%; 
+    animation:fall 16s linear infinite ;
+    animation-delay:-10s;
+}
+.plant div:nth-child(7){
+    left:90%; 
+    animation:fall 15s linear infinite ;
+    animation-delay:-8s;
+}
+.plant div:nth-child(8){
+    left:70%; 
+    animation:fall 15s linear infinite ;
+    animation-delay:-1s;
+}
+.plant div:nth-child(9){
+    left:40%; 
+    animation:fall 15s linear infinite ;
+    animation-delay:-9s;
+}
+.plant div:nth-child(10){
+    left:30%; 
+    animation:fall 15s linear infinite ;
+    animation-delay:-5s;
+}
+
+@keyframes fall{
+    0%{
+        opacity:1;
+        top:-10%;
+        transform:rotate(0deg);
+    }
+    20%{
+        opacity:0.8;
+        transform:rotate(45deg);
+    }
+    40%{
+
+        transform:(90deg);
+    }
+    60%{
+        
+       transform:rotate(135deg); 
+    }
+    80%{
+    
+        transform:rotate(180deg);
+    }
+    100%{
+        opacity:0.5;
+        top:110%;
+        transform:(225deg);
+    }
+    }
+
+h2{
+    position:absolute ;
+    top:40%;
+    width:100%;
+    font-size:2em;
+    text-align:center;
+    
+    color:#fff;
+    transform:translateY (-50%);
+}
