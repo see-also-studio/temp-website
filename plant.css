@@ -7,7 +7,7 @@ background-color:#fff;
 section{
 height:100%;
 width:100%;
-  position:absolute ;  background:radial-gradient(#333,#000);
+  position:absolute ;  background:radial-gradient(#fff,#fff);
 }
 .plant{
     position:absolute ;
@@ -102,13 +102,3 @@ display:block ;
     }
     }
 
-h2{
-    position:absolute ;
-    top:40%;
-    width:100%;
-    font-size:2em;
-    text-align:center;
-    
-    color:#fff;
-    transform:translateY (-50%);
-}
