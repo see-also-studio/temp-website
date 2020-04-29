@@ -4,12 +4,11 @@ padding:0;
 overflow:hidden;
 background-color:#fff;
 }
-section{
-height:100%;
-width:100%;
-  position:absolute ;  background:radial-gradient(#fff,#fff);
-  z-index: 2;
+
+.about{
+  z-index: 1;
 }
+
 .plant{
     position:absolute ;
     width:100%;
