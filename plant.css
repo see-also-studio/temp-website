@@ -8,6 +8,7 @@ section{
 height:100%;
 width:100%;
   position:absolute ;  background:radial-gradient(#fff,#fff);
+  z-index: 2;
 }
 .plant{
     position:absolute ;
