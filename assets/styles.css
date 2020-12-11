@@ -42,6 +42,7 @@ body {
   position: relative;
   height: 18.5em;
   width: 20em;
+  margin-top: 1em;
 }
 
 .layer {
