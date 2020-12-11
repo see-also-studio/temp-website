@@ -78,9 +78,7 @@ a {
 }
   
 a:hover {
-  text-decoration: underline;
-  text-decoration-style: dashed;
-  text-decoration-thickness: 2px;
+  border-bottom: 2px dashed black;
 }
 
 .link {
