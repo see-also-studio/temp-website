@@ -123,3 +123,23 @@ if( aboutModal.classList.contains('about-modal__visible') ) {
   aboutModal.classList.add('about-modal__visible');
 }
 });
+
+document.querySelector('.mute').addEventListener('click', function() {
+  var audio = document.querySelector('#audio');
+
+  if(audio.muted) {
+    audio.muted = false;
+  }
+
+  if(audio.paused) {
+    audio.play();
+  }
+
+  if(this.classList.contains('mute__muted')) {
+    audio.volume = 0.4;
+    this.classList.remove('mute__muted');
+  } else {
+    audio.volume = 0;
+    this.classList.add('mute__muted');
+  }
+});
