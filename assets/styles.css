@@ -195,3 +195,13 @@ audio {
     font-size: 1.25rem;
   }
 }
+
+::-moz-selection {
+  color: var(--bgcolor);
+  background: rgba(0,0,0,0.5);
+}
+
+::selection {
+  color: var(--bgcolor);
+  background: rgba(0,0,0,0.5);
+}
