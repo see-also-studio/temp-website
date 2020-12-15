@@ -97,7 +97,7 @@ a:hover {
   margin: 0.5rem;
 }
   
-.link#email {
+.link#mute {
   left: 0;
 }
   
@@ -130,11 +130,6 @@ a:hover {
 
 .mute {
   position: absolute;
-  top: auto;
-  bottom: 0;
-  left: 0;
-  margin: 0.5em;
-  z-index: 30;
 }
 
 .mute:not(.mute__muted) .on {
