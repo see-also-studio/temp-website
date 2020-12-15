@@ -150,6 +150,7 @@ a:hover {
   content: url('images/volume-up.svg');
   position: relative;
   width: 50%;
+  top: 10%;
 }
 
 .mute.mute__muted::after {
