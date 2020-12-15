@@ -84,10 +84,11 @@ a {
   cursor: pointer;
   color: inherit;
   text-decoration: none;
+  border-bottom: 2px dashed transparent;
 }
   
 a:hover {
-  border-bottom: 2px dashed black;
+  border-bottom-color: black;
 }
 
 .link {
@@ -128,38 +129,20 @@ a:hover {
 }
 
 .mute {
-  font-family: sans-serif;
   position: absolute;
+  top: auto;
   bottom: 0;
   right: 0;
-  width: 2em;
-  height: 2em;
-  font-size: 2em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0.5em;
   z-index: 30;
-  overflow: hidden;
 }
 
-.mute:hover {
-  opacity: 0.65;
+.mute:not(.mute__muted) .on {
+  text-transform: uppercase;
 }
 
-.mute::after {
-  content: url('images/volume-up.svg');
-  position: relative;
-  width: 50%;
-  top: 10%;
-}
-
-.mute.mute__muted::after {
-  content: url('images/volume-slash.svg');
-  left: -0.0475em;
-}
-
-.mute:hover {
-  border: none;
+.mute.mute__muted .off {
+  text-transform: uppercase;
 }
 
 audio {
@@ -180,7 +163,8 @@ audio {
   }
 
   header, 
-  #layer-5 {
+  #layer-5, 
+  .mute {
     font-size: 1.15rem;
   }
 }
@@ -191,7 +175,8 @@ audio {
   }
 
   header, 
-  #layer-5 {
+  #layer-5, 
+  .mute {
     font-size: 1.25rem;
   }
 }
