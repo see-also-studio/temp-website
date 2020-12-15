@@ -1,3 +1,4 @@
+@charset "utf-8"; 
 @font-face {
 	font-family: "ModeSeven";
 	src: url("fonts/ModeSeven/ModeSeven.eot?") format("eot"),
@@ -127,6 +128,7 @@ a:hover {
 }
 
 .mute {
+  font-family: sans-serif;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -136,6 +138,8 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 30;
+  overflow: hidden;
 }
 
 .mute:hover {
@@ -143,12 +147,14 @@ a:hover {
 }
 
 .mute::after {
-  content: "\1F50A\FE0E";
+  content: url('images/volume-up.svg');
+  position: relative;
+  width: 50%;
 }
 
 .mute.mute__muted::after {
-  content: "\1F508\FE0E";
-  margin-right: 0.40em;
+  content: url('images/volume-slash.svg');
+  left: -0.0475em;
 }
 
 .mute:hover {
