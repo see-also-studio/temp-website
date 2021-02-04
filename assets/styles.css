@@ -15,6 +15,19 @@ a:visited {
     color: blue;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.image-50 {
+    width: 50%;
+}
+
+.image-75 {
+    width: 75%;
+}
+
 .about {
     position: relative;
     z-index: 2;
