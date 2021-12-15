@@ -1,0 +1,40 @@
+.snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 110;
+    overflow: hidden;
+    font-size: 3em;
+
+    .snow__flake {
+        display: block;
+        position: fixed;
+        animation: snow 5s ease-in-out infinite;
+    }
+}
+
+#snow-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 10em;
+    color: var(--color--alt1);
+    z-index: 110;
+}
+
+@keyframes snow {
+    0% {
+        transform: translate3d(1em,0,0)
+    }
+
+    50% {
+        transform: translate3d(-1em,0,0)
+    }
+
+    100% {
+        transform: translate3d(1em,0,0)
+    }
+}
