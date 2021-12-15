@@ -9,13 +9,17 @@ const recipient = getUrlParam('r');
 const content = getUrlParam('c');
 const validation = getUrlParam('v');
 
-if (validateUrl(recipient.length, content.length, validation)) {
-  console.log('Url is valid');
-  document.documentElement.classList.add('custom');
-  document.querySelector('#name').innerHTML = scramble(recipient);
-  document.querySelector('#content').innerHTML = scramble(content);
+if (recipient !== undefined && content !== undefined && validation !== undefined) {
+  if (validateUrl(recipient.length, content.length, validation)) {
+    console.log('Url is valid');
+    document.documentElement.classList.add('custom');
+    document.querySelector('#name').innerHTML = scramble(recipient);
+    document.querySelector('#content').innerHTML = scramble(content);
+  } else {
+    console.log('Url is invalid');
+    document.querySelector('#message').classList.add('active');
+  }
 } else {
-  console.log('Url is invalid');
   document.querySelector('#message').classList.add('active');
 }
 
