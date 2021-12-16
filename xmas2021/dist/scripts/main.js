@@ -184,3 +184,40 @@ class Marquee {
 document.querySelectorAll('.marquee').forEach(function(el) {
   new Marquee(el);
 });
+
+/**
+ * Trees
+ */
+ class Forest {
+  constructor(el) {
+    this.el = el;
+    this.tree = this.el.querySelector('.background__tree');
+    window.addEventListener('resize', () => this.resize());
+    this.init();
+  }
+
+  init() {
+    const width = this.el.offsetWidth;
+    const treeWidth = this.tree.offsetWidth;
+    const ratio = treeWidth / width;
+    const amount = Math.ceil(width / treeWidth);
+    
+    for (let i = 0; i < amount - 1; i++) {
+      var clone = this.tree.cloneNode(true);
+      clone.classList.add('background__tree--clone');
+      clone.style.setProperty('--animation-offset', Math.random() * -1.5 + 's');
+      this.el.appendChild(clone);
+    }
+  }
+
+  resize() {
+    this.el.querySelectorAll('.background__tree--clone').forEach(function(clone) {
+      clone.remove();
+    });
+    this.init();
+  }
+}
+
+document.querySelectorAll('.background').forEach(function(el) {
+  new Forest(el);
+});

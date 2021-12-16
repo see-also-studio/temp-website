@@ -34,29 +34,42 @@
 </main>
 <div class="marquee marquee--top"><span class="marquee__wrapper">Happy Holidays * Happy Holidays</span></div>
 <div class="marquee marquee--bottom"><span class="marquee__wrapper">Love from See, Also</span></div>
-<button id="snow-button" title="Toggle snow">*</button>
+<button id="snow-button" class="mute__muted" title="Toggle snow">*</button>
+<audio id="audio" muted autoplay controls loop>
+  <source src="/xmas2020/assets/audio/audio.mp3" type="audio/mpeg">
+</audio>
 <div class="snow"></div>
 <div class="background">
   <div class="background__tree">
-    <!--<svg xmlns="http://www.w3.org/2000/svg" width="302.727" height="231.108" viewBox="0 0 302.727 231.108">
-      <path id="Path_26" data-name="Path 26" d="M8236.83,5458.713c-188.563,157.114-252.933,207.187-81.465,199.2s125.668,75.638,140.272,0-142.353-110.842,62.749-47.709" transform="" fill="#fff"/>
+
+    <svg id="tree__1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 303 231.4167">
+      <path class="tree__path" d="M181.1714,0C-7.3916,157.1138-71.7617,207.187,99.7065,199.2002
+        c171.4688-7.9868,125.668,75.6382,140.2725,0s-142.353-110.8418,62.749-47.709"/>
     </svg>
-    
-    <svg xmlns="http://www.w3.org/2000/svg" width="462.22" height="316.426" viewBox="0 0 462.22 316.426">
-      <path id="Path_27" data-name="Path 27" d="M8222.928,5458.713c-169.527,152.244-305.843,292.044-164.827,287.84,4.605-.137,74.111-15.425,79.041-15.673,159.09-7.989,112.647,91.313,126.2,15.673,9.564-53.4,142.365-34.234,198.313-15.673" transform="" fill="#fff"/>
+
+    <svg id="tree__2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 462.75 317.0417">
+      <path class="tree__path" d="M223.4956,0C53.9687,152.2441-82.3472,292.0439,58.6685,287.8398
+	      c4.605-0.1372,74.1108-15.4248,79.041-15.6729c159.0898-7.9888,112.6475,91.313,126.2002,15.6729
+	      c9.5645-53.3999,142.3652-34.2339,198.3135-15.6729"/>
     </svg>
-    
-    <svg xmlns="http://www.w3.org/2000/svg" width="513.843" height="331.247" viewBox="0 0 513.843 331.247">
-      <path id="Path_28" data-name="Path 28" d="M8225.2,5398.162c-226.257,48.624-306.916,335.406-169.591,331.2,4.483-.137,80.707-48.819,85.509-49.067,154.917-7.988,78.185,95.02,91.379,19.381,8.524-48.862,203.4-26.375,269.61-13.481" transform="" fill="#fff"/>
+
+    <svg id="tree__3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 515.75 333.0417">
+      <path class="tree__path" d="M236.9356,0C10.6787,48.624-69.9805,335.4063,67.3447,331.2002
+        c4.4829-0.1372,80.707-48.8188,85.5088-49.0669c154.917-7.9878,78.1846,95.02,91.3789,19.3809
+        c8.5244-48.8618,203.4004-26.375,269.6104-13.481"/>
     </svg>
-    
-    <svg xmlns="http://www.w3.org/2000/svg" width="582.972" height="337.765" viewBox="0 0 582.972 337.765">
-      <path id="Path_29" data-name="Path 29" d="M8305.955,5482.356c-28.469-84.161-414.88,298.478-230.86,293.789,6.008-.153,96.71-17.2,103.145-17.477,207.6-8.909,147,101.822,164.68,17.477,12.481-59.546,38.128,2.346,265.663-35.254" transform="" fill="#fff"/>
+
+    <svg id="tree__4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583.25 338.0417">
+      <path class="tree__path" d="M280.3424,12.0993c-28.4688-84.1611-414.8799,298.478-230.8599,293.7891
+        c6.0078-0.1528,96.71-17.2002,103.145-17.4771c207.5996-8.9092,147,101.8218,164.6797,17.4771
+        c12.4814-59.5459,38.1279,2.3462,265.6631-35.2539"/>
     </svg>
-    
-    <svg xmlns="http://www.w3.org/2000/svg" width="239.366" height="229.872" viewBox="0 0 239.366 229.872">
-      <path id="Path_41" data-name="Path 41" d="M101.441,0C-3.805,123.424-39.69,162.819,54.4,154.284s67.981,56.4,76.893-1.956S80.564,11.767,192.238,57.444" transform="rotate(-19)" fill="#fff"/>
-    </svg>-->
+
+    <svg id="tree__5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 157.25 174.375">
+      <path class="tree__path" d="M51.7673-0.038c-59.3291,150.9644-80.4333,199.8961,5.7518,161.1934
+        s82.6393,31.1948,72.0669-26.8833S35.8587,17.8848,156.3195,24.7158"/>
+    </svg>
+
   </div>
 </div>
 <script src="/xmas2021/dist/scripts/main.js" type="module"></script>
