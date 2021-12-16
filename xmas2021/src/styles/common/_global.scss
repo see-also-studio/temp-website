@@ -39,6 +39,10 @@ body {
         }
     }
 
+    @media screen and (max-width: 25rem) {
+        font-size: 0.8em;
+    }
+
     > .card {
         width: 24em;
         align-self: center;
