@@ -211,11 +211,9 @@ class Marquee {
     const width = this.el.offsetWidth;
     const wrapperWidth = this.wrapper.offsetWidth;
     const ratio = wrapperWidth / width;
-    console.log(ratio);
     const amount = Math.ceil(width / wrapperWidth);
     
     for (let i = 0; i < amount; i++) {
-      console.log(amount);
       var clone = this.wrapper.cloneNode(true);
       clone.classList.add('marquee__wrapper--clone');
       this.el.appendChild(clone);
