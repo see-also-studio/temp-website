@@ -40,6 +40,20 @@ body {
         }
     }
 
+    .card {
+        &:nth-child(1) {
+            mask-image: radial-gradient(0.75em at 1.5em 1.5em,transparent 95%,#000 100%);
+
+            &.active {
+                mask-image: radial-gradient(0.75em at calc(100% - 1.5em) 1.5em,transparent 95%,#000 100%);
+            }
+        }
+
+        &:nth-child(2) {
+            mask-image: radial-gradient(0.7em at 2em 2.5em,transparent 95%,#000 100%);
+        }
+    }
+
     @media screen and (max-width: 25rem) {
         font-size: 0.8em;
     }
