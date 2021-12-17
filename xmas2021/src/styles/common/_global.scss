@@ -56,6 +56,12 @@ body {
         position: absolute;
         top: 0;
         left: 0;
+
+        &::after {
+            content: "↪";
+            display: block;
+            margin-top: 0.25em;
+        }
     }
 }
 
