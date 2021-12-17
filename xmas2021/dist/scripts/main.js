@@ -259,7 +259,8 @@ document.querySelectorAll('.marquee').forEach(function(el) {
     const width = this.el.offsetWidth;
     const treeWidth = this.tree.offsetWidth;
     const ratio = treeWidth / width;
-    const amount = Math.ceil(width / treeWidth);
+    const amount = Math.floor((width + treeWidth * 0.6) / treeWidth);
+    // 100 / 33 = 3.33 = 3
     
     for (let i = 0; i < amount - 1; i++) {
       var clone = this.tree.cloneNode(true);
