@@ -13,6 +13,26 @@
         display: block;
         position: fixed;
         animation: snow 5s ease-in-out infinite;
+        
+        &::after {
+            content: "*";
+        }
+
+        &.angel {
+            background-image: url("/xmas2021/dist/images/angel01.gif");
+            width: 0.5em;
+            height: 1em;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+
+            &.angel--alt {
+                background-image: url("/xmas2021/dist/images/angel02.gif");
+            }
+
+            &::after {
+                content: "";
+            }
+        }
     }
 }
 

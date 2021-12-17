@@ -91,7 +91,18 @@ function drawFrame() {
     if (flake.y > height) {
       flake.y = -50;
       flake.style.left = Math.floor(Math.random() * 100) + '%';
+      if (flake.classList.contains('angel')) {
+        flake.classList.remove('angel');
+        flake.classList.remove('angel--alt');
+      } else {
+        if (Math.floor(Math.random() * 100 + 1) >= 96) {
+          flake.classList.add('angel');
 
+          if (Math.floor(Math.random() * 100 + 1 > 50)) {
+            flake.classList.add('angel--alt');
+          }
+        }
+      }
     }
     flake.style.top = flake.y + 'px';
   }
@@ -118,7 +129,6 @@ function initSnow() {
     var size = Math.floor(Math.random() * 5);
     var flake = document.createElement('span');
     flake.classList.add('snow__flake');
-    flake.innerText = '*';
     flake.style.left = Math.floor(Math.random() * 100) + '%';
     flake.style.top = y + 'px';
     flake.style.animationDuration = ((Math.random() * 15) + 5) + 's';
