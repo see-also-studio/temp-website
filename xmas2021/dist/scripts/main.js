@@ -1,16 +1,26 @@
 console.log('main.js');
 
-// http://localhost:8080/?r=rFRJbwZWSFRJ&c=lNbrFRJcdGWEbxMNXbNXbYMJbRFNSbGTIAbHTSYJSYbTKbYMJbRJXXFLJCbmYbHFSbGJbMT3J1JWbQTSLb3Jb3FSYcbFQYMTZLMbYMFYbITJXbRJFSbFbQTSLJWbZWQb1FWNFGQJbUFWFRJYJWCCCdGWEfWJFPbYFLXbHFSbGJbZXJIbKTWbQNSJGWJFPXCdGWEqJWWAbgMWNXYRFXbKWTRbwJJbeQXT&v=2688
-console.log(scramble('Name Surname', true));
-console.log(scramble('Hi Name,<br> This is the main body content of the message. It can be however long we want, although that does mean a longer url variable parameter...<br>Break tags can be used for linebreaks.<br>Merry Christmas from See Also', true));
-//
+const recipient = decodeURI(getUrlParam('r'));
+const content = decodeURI(getUrlParam('c'));
+const validation = decodeURI(getUrlParam('v'));
+const reverse = decodeURI(getUrlParam('w'));
 
-const recipient = getUrlParam('r');
-const content = getUrlParam('c');
-const validation = getUrlParam('v');
+if (reverse === 'write') {
+  console.log('Write mode: ');
+  console.log(recipient);
+  console.log(content);
+  let url = 'https://www.see-also.com';
+  const r = scramble(recipient, true);
+  const c = scramble(content, true);
+  const v = hashCode(r + c);
+  console.log('Validation check: ');
+  console.log(validateUrl(r, c, v));
+  console.log('Link: ');
+  console.log(url + '/xmas2021/?r=' + r + '&c=' + c + '&v=' + v);
+}
 
 if (recipient !== undefined && content !== undefined && validation !== undefined) {
-  if (validateUrl(recipient.length, content.length, validation)) {
+  if (validateUrl(recipient, content, validation)) {
     console.log('Url is valid');
     document.documentElement.classList.add('custom');
     document.querySelector('#name').innerHTML = scramble(recipient);
@@ -57,13 +67,12 @@ function getUrlParam(parameter, defaultvalue = false){
   return urlparameter;
 }
 
-function validateUrl(recipientLength, contentLength, validation) {
-  const valid = recipient.length * content.length;
+function validateUrl(r, c, validation) {
+  const valid = hashCode(r + c);
 
   if (valid == validation) {
     return true;
   } else {
-    console.log('Should equal ' + valid);
     return false;
   }
 }
@@ -281,3 +290,17 @@ document.querySelectorAll('.marquee').forEach(function(el) {
 document.querySelectorAll('.background').forEach(function(el) {
   new Forest(el);
 });
+
+/**
+ * String hash function
+ */
+function hashCode(text) {
+  var hash = 0, i, chr;
+  if (text.length === 0) return hash;
+  for (i = 0; i < text.length; i++) {
+    chr   = text.charCodeAt(i);
+    hash  = ((hash << 5) - hash) + chr;
+    hash |= 0; // Convert to 32bit integer
+  }
+  return hash;
+};
