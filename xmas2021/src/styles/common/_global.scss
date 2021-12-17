@@ -64,6 +64,7 @@ body {
     }
 
     #name {
+        font-family: 'IM Fell English', serif;
         font-size: 1.5em;
         text-align: center;
         height: 100%;
@@ -74,8 +75,10 @@ body {
 
         &::after {
             content: "↪";
+            content: "View greeting";
+            font-size: 69%;
             display: block;
-            margin-top: 0.25em;
+            margin-top: 0.8em;
         }
     }
 }
