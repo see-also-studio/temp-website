@@ -81,9 +81,10 @@ body {
         &::after {
             content: "↪";
             content: "View greeting";
-            font-size: 69%;
+            font-size: 60%;
             display: block;
-            margin-top: 0.8em;
+            margin-top: 0.5em;
+            text-transform: uppercase;
         }
     }
 }
