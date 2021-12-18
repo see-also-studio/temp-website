@@ -244,7 +244,7 @@ class Marquee {
           { transform: 'translate3d(0,0,0)' },
           { transform: 'translate3d(-100%,0,0)' }
         ], {
-          duration: 20000 * ratio,
+          duration: 40000 * ratio,
           iterations: Infinity,
         },
       );
