@@ -259,10 +259,6 @@ class Marquee {
   }
 }
 
-document.querySelectorAll('.marquee').forEach(function(el) {
-  new Marquee(el);
-});
-
 /**
  * Trees
  */
@@ -297,8 +293,14 @@ document.querySelectorAll('.marquee').forEach(function(el) {
   }
 }
 
-document.querySelectorAll('.background').forEach(function(el) {
-  new Forest(el);
+window.addEventListener('load', function() {
+  document.querySelectorAll('.background').forEach(function(el) {
+    new Forest(el);
+  });
+
+  document.querySelectorAll('.marquee').forEach(function(el) {
+    new Marquee(el);
+  });
 });
 
 /**
