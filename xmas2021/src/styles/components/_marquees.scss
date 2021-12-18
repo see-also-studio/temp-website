@@ -1,11 +1,14 @@
 .marquee {
+    font-family: "Compagnon", monospace, sans-serif;
     position: fixed;
     width: 100%;
     left: 0;
     background: var(--color--fg);
     overflow: hidden;
     white-space: nowrap;
-    padding: 0.4em 0;
+    z-index: 20;
+    line-height: 1.2;
+    padding-bottom: 0.3em;
 
     &.marquee--top {
         top: 0;
@@ -17,6 +20,11 @@
 
     > .marquee__wrapper {
         display: inline-block;
-        padding-right: 15em;
+    }
+
+    &:not(.compact) {
+        > .marquee__wrapper {
+            padding-right: 12em;
+        }
     }
 }
