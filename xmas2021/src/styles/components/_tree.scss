@@ -1,6 +1,5 @@
 .background {
   position: fixed;
-  z-index: -1;
   top: 0;
   left: 0;
   overflow: hidden;
@@ -18,6 +17,12 @@
     height: 100%;
     aspect-ratio: 0.583;
     display: inline-block;
+
+    &:hover{
+      svg {
+        animation-play-state: running !important;
+      }
+    }
   }
 
   path {
@@ -35,6 +40,7 @@
       animation: tree-sway ease-in-out infinite;
       animation-duration: 6s;
       animation-delay: var(--animation-offset);
+      animation-play-state: paused;
     }
 
     @keyframes tree-sway {

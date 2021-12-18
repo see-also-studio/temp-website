@@ -27,6 +27,9 @@ body {
     box-sizing: border-box;
     min-height: 100%;
     line-height: 1.2;
+    pointer-events: none;
+    z-index: 50;
+    position: relative;
 
     @media screen and (min-width: 45em) {
         flex-wrap: nowrap;
@@ -43,6 +46,8 @@ body {
     }
 
     .card {
+        pointer-events: initial;
+
         &:nth-child(1) {
             -webkit-mask-image: radial-gradient(0.75em at 1.5em 1.5em,transparent 95%,#000 100%);
             mask-image: radial-gradient(0.75em at 1.5em 1.5em,transparent 95%,#000 100%);
