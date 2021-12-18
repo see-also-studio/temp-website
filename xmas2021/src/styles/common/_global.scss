@@ -10,7 +10,9 @@ body {
     background: var(--color--fg);
     color: white;
     margin: 0;
-    font-size: 1.5vw;
+    font-size: 1.2vw;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
     @media screen and (max-width: 860px) {
         font-size:1.7vw;
