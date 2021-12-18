@@ -1,5 +1,4 @@
 .snow {
-    font-family: sans-serif;
     position: fixed;
     top: 0;
     left: 0;
@@ -11,6 +10,10 @@
     font-size: 3em;
 
     .snow__flake {
+        font-family: sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        line-height: normal;
         display: block;
         position: fixed;
         animation: snow 5s ease-in-out infinite;
@@ -39,12 +42,16 @@
 
 #snow-button {
     font-family: sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: normal;
     position: fixed;
-    top: 0.12em;
+    top: 0.08em;
     right: 0.4rem;
     font-size: 12.5em;
     color: var(--color--alt1);
     z-index: 110;
+    top: 0;
 }
 
 @keyframes snow {
