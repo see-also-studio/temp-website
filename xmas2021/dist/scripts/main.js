@@ -1,15 +1,16 @@
 console.log('main.js');
 
-const recipient = decodeURI(getUrlParam('r'));
-const content = decodeURI(getUrlParam('c'));
-const validation = decodeURI(getUrlParam('v'));
-const reverse = decodeURI(getUrlParam('w'));
+const recipient = decodeURIComponent(getUrlParam('r'));
+const content = decodeURIComponent(getUrlParam('c'));
+const validation = decodeURIComponent(getUrlParam('v'));
+const reverse = decodeURIComponent(getUrlParam('w'));
 
 if (reverse === 'write') {
   console.log('Write mode: ');
   console.log(recipient);
   console.log(content);
   let url = 'https://www.see-also.com';
+  //url = 'http://localhost:8080'
   const r = scramble(recipient, true);
   const c = scramble(content, true);
   const v = hashCode(r + c);
@@ -34,8 +35,8 @@ if (recipient !== undefined && content !== undefined && validation !== undefined
 }
 
 function scramble(str, create = false) {
-  const chars = ['A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z', ' ', '.', ',', '!', '<', '>'];
-  const charsScrambled = ['e', 'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z', '1', '2', '3', '4', '5', '6', 'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E'];
+  const chars = ['A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z', ' ', '.', ',', '!', '?', '&', '(', ')', '<', '>'];
+  const charsScrambled = ['H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g'];
 
   let result = [];
 
