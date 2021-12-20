@@ -78,84 +78,13 @@ function validateUrl(r, c, validation) {
 }
 
 
-/**
- * Snow
- */
-
-var canvas, ctx, height, width, flakes, flakeCount, flakeSize;
-
-function drawFrame() {
-  for (var i = 0; i < flakes.length; i++) {
-    var flake = flakes[i];
-    flake.y += flake.speed;
-    if (flake.y > height) {
-      flake.y = -50;
-      flake.style.left = Math.floor(Math.random() * 100) + '%';
-      if (flake.classList.contains('angel')) {
-        flake.classList.remove('angel');
-        flake.classList.remove('angel--alt');
-      } else {
-        if (Math.floor(Math.random() * 100 + 1) >= 96) {
-          flake.classList.add('angel');
-
-          if (Math.floor(Math.random() * 100 + 1 > 50)) {
-            flake.classList.add('angel--alt');
-          }
-        }
-      }
-    }
-    flake.style.top = flake.y + 'px';
-  }
-}
-
-function animate() {
-  window.requestAnimationFrame(animate);
-  drawFrame();
-}
-
-var width, height, types, snowContainer, flakes;
-
-function initSnow() {
-  height = document.body.offsetHeight,
-  width = document.body.offsetWidth, 
-  flakes = [], 
-  flakeCount = 12,
-  flakeSize = 24;
-  snowContainer = document.querySelector('.snow');
-
-  for (var i = 0; i < flakeCount; i++) {
-    var x = Math.floor(Math.random() * 100);
-    var y = -50;
-    var size = Math.floor(Math.random() * 5);
-    var flake = document.createElement('span');
-    flake.classList.add('snow__flake');
-    flake.style.left = Math.floor(Math.random() * 100) + '%';
-    flake.style.top = y + 'px';
-    flake.style.animationDuration = ((Math.random() * 15) + 5) + 's';
-    flake.x = x;
-    flake.y = y;
-    flake.speed = (Math.random() + 0.15);
-    flake.style.fontSize = flake.speed * 1.8 + 1 + 'em';
-    snowContainer.appendChild(flake);
-    flakes.push(flake);
-  }
-
-  animate();
-}
-
-initSnow();
-
-/**
- * Buttons
- */
-
-document.querySelector('#name').addEventListener('click', function(e) {
-  document.querySelector('#message').classList.add('active');
-});
 
 /**
  * Snow button
  */
+
+var audioEnabled = false;
+
 document.querySelector('#snow-button').addEventListener('click', function() {
   var audio = document.querySelector('#audio');
 
@@ -171,9 +100,11 @@ document.querySelector('#snow-button').addEventListener('click', function() {
   if(this.classList.contains('mute__muted')) {
     adjustVolume(audio, 0.4);
     this.classList.remove('mute__muted');
+    audioEnabled = true;
   } else {
     adjustVolume(audio, 0);
     this.classList.add('mute__muted');
+    audioEnabled = false;
   }
 });
 
@@ -211,6 +142,130 @@ async function adjustVolume(
 function swing(p) {
   return 0.5 - Math.cos(p * Math.PI) / 2;
 }
+ 
+ 
+
+/**
+ * Snow
+ */
+
+class Snow {
+  constructor(el) {
+    this.el = el;
+    this.flakesCurrent = 1;
+    this.flakesMin = 3;
+    this.flakesMax = 30;
+    this.flakes = [];
+    this.flakeDelay = 50;
+    this.flakeCountdown = this.flakeDelay; 
+    this.height, this.width;
+    window.addEventListener('resize', () => this.resize());
+    this.init();
+  }
+
+  init() {
+    this.resize();
+    this.animate();
+  }
+
+  resize() {
+    this.height = this.el.offsetHeight;
+    this.width = this.el.offsetWidth;
+  }
+
+  animate() {
+    window.requestAnimationFrame(this.animate.bind(this));
+    this.drawFrame();
+  }
+
+  drawFrame() {
+    while (this.flakes.length < this.flakesCurrent) {
+      this.createFlake();
+    }
+
+    for (let i = 0; i < this.flakes.length; i++) {
+      let flake = this.flakes[i];
+      this.moveFlake(i);
+    }
+
+    this.manageFlakes();
+  }
+
+  manageFlakes() {
+    //console.log(audioEnabled + ' ' + this.flakesMin + ' ' + this.flakesCurrent + ' ' + this.flakesMax);
+
+    if (!audioEnabled && this.flakesCurrent > this.flakesMin) {
+      this.flakesCurrent = this.flakesMin;
+
+    } else if((audioEnabled && this.flakesCurrent < this.flakesMax) || this.flakesCurrent < this.flakesMin) {
+      //console.log('create new flake');
+      if (this.flakeCountdown <= 0) {
+        this.flakeCountdown = this.flakeDelay;
+        this.flakesCurrent++;
+      } else {
+        this.flakeCountdown--;
+      }
+    }
+  }
+
+  createFlake() {
+    let flake = document.createElement('span');
+    flake.classList.add('snow__flake');
+    this.randomizeFlake(flake);
+    this.el.appendChild(flake);
+    this.flakes.push(flake);
+  }
+
+  moveFlake(i) {
+    let flake = this.flakes[i]
+    flake.y += flake.speed;
+    flake.style.top = flake.y + 'px';
+
+    if (flake.y > this.height) {
+      this.resetFlake(i);
+    }
+  }
+
+  resetFlake(i) {
+    let flake = this.flakes[i];
+
+    if (this.flakes.length > this.flakesCurrent && Math.floor(Math.random() * 100 + 1) < 85) {
+      flake.remove();
+      this.flakes.splice(i, 1);
+      //('Delete flake' + this.flakes.length + '/' + this.flakesCurrent);
+    } else {
+      flake.classList.remove('angel', 'angel--alt');
+      this.randomizeFlake(flake);
+    }
+  }
+
+  randomizeFlake(flake) {
+    flake.speed = (Math.random() + 0.15);
+    flake.size = flake.speed * 1.8 + 1;
+    flake.y = -100;
+    flake.style.left = Math.floor(Math.random() * 100) + '%';
+    flake.style.animationDuration = ((Math.random() * 15) + 5) + 's';
+    flake.style.fontSize = flake.size + 'em';
+
+    if (Math.floor(Math.random() * 100) + 1 > 96) {
+      flake.classList.add('angel');
+
+      if (Math.floor(Math.random() * 2) + 1 > 1) {
+        flake.classList.add('angel--alt');
+      }
+    }
+  }
+}
+
+
+
+/**
+ * Buttons
+ */
+
+document.querySelector('#name').addEventListener('click', function(e) {
+  document.querySelector('#message').classList.add('active');
+});
 
 
 
@@ -293,6 +348,12 @@ class Marquee {
   }
 }
 
+
+
+/**
+ * Wait for page to load so can get window size
+ */
+
 window.addEventListener('load', function() {
   document.querySelectorAll('.background').forEach(function(el) {
     new Forest(el);
@@ -301,6 +362,8 @@ window.addEventListener('load', function() {
   document.querySelectorAll('.marquee').forEach(function(el) {
     new Marquee(el);
   });
+
+  let snow = new Snow(document.querySelector('.snow'));
 });
 
 /**
