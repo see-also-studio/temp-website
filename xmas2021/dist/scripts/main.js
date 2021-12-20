@@ -154,7 +154,7 @@ class Snow {
     this.el = el;
     this.flakesCurrent = 1;
     this.flakesMin = 3;
-    this.flakesMax = 30;
+    this.flakesMax = 25;
     this.flakes = [];
     this.flakeDelay = 50;
     this.flakeCountdown = this.flakeDelay; 
