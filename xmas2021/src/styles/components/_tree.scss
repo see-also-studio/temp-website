@@ -16,7 +16,7 @@
     position: relative;
     height: 100%;
     //aspect-ratio: 0.583;
-    width: 58.3vh;
+    min-width: 58.3vh;
     display: inline-block;
 
     &:hover{
