@@ -99,6 +99,10 @@ a {
                 min-height: 13em;
                 transform: rotate(-3deg);
                 border-radius: 2em;
+
+                > * {
+                    font-size: 85%;
+                }
             }
         }
     }
