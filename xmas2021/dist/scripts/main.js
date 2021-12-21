@@ -28,10 +28,7 @@ if (recipient !== undefined && content !== undefined && validation !== undefined
     document.querySelector('#content').innerHTML = scramble(content);
   } else {
     console.log('Url is invalid');
-    document.querySelector('#message').classList.add('active');
   }
-} else {
-  document.querySelector('#message').classList.add('active');
 }
 
 function scramble(str, create = false) {
