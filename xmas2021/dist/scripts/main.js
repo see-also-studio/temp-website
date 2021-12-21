@@ -385,3 +385,23 @@ function hashCode(text) {
   }
   return hash;
 };
+
+
+
+/**
+ * Draggable
+ */
+const position = { x: 0, y: 0 }
+
+interact('.card').draggable({
+  listeners: {
+    move (event) {
+      let el = event.target;
+      let x = (parseFloat(el.getAttribute('data-x')) || 0) + event.dx;
+      var y = (parseFloat(el.getAttribute('data-y')) || 0) + event.dy;
+      el.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
+      el.setAttribute('data-x', x);
+      el.setAttribute('data-y', y);
+    },
+  }
+});
