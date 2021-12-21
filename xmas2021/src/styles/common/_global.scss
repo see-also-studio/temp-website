@@ -94,7 +94,7 @@ a {
         &:nth-child(2) {
             .card__inner {
                 -webkit-mask-image: radial-gradient(0.75em at 1.5em 1.5em,transparent 95%,#000 100%);
-                mask-image: radial-gradient(0.7em at 2em 2.5em,transparent 95%,#000 100%);
+                mask-image: radial-gradient(0.7em at 2em 2.2em,transparent 95%,#000 100%);
                 width: 20em;
                 min-height: 13em;
                 transform: rotate(-3deg);
@@ -111,6 +111,7 @@ a {
         width: 24em;
         background: var(--color--bg);
         padding: 1.85em;
+        padding-top: 2.5em;
         //aspect-ratio: 6/4;
         min-height: 16em;
         display: flex;
