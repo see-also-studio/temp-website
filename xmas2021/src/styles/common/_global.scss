@@ -75,6 +75,8 @@ a {
         height: max-content;
         align-self: center;
         filter: drop-shadow(0 0.8em 1em rgba(0,0,0,.16));
+        -ms-touch-action: none;
+        touch-action: none;
 
         &:nth-child(1) {
             .card__inner {
