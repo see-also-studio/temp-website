@@ -403,5 +403,8 @@ interact('.card').draggable({
       el.setAttribute('data-x', x);
       el.setAttribute('data-y', y);
     },
-  }
+  },
+  cursorChecker() {
+    return 'grab';
+  },
 });

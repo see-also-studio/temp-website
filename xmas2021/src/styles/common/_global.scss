@@ -50,6 +50,7 @@ p + p {
     pointer-events: none;
     z-index: 50;
     position: relative;
+    overflow: hidden;
 
     @media screen and (min-width: 45em) {
         flex-wrap: nowrap;
@@ -69,6 +70,7 @@ p + p {
         pointer-events: initial;
         height: max-content;
         align-self: center;
+        filter: drop-shadow(0 0.8em 1em rgba(0,0,0,.16));
 
         &:nth-child(1) {
             .card__inner {
