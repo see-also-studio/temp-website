@@ -31,6 +31,10 @@ p + p {
     margin-top: calc(var(--line-height) * 1em);
 }
 
+a {
+    color: inherit;
+}
+
 #message br {
     display: block;
     margin-top: calc(var(--line-height) * 1em);
