@@ -91,6 +91,37 @@ var audioEnabled = false;
 document.querySelector('#snow-button').addEventListener('click', function() {
   var audio = document.querySelector('#audio');
 
+  if(this.classList.contains('mute__muted')) {
+    //adjustVolume(audio, 0.4);
+    toggleAudio(audio, true);
+    this.classList.remove('mute__muted');
+    audioEnabled = true;
+  } else {
+    //adjustVolume(audio, 0);
+    toggleAudio(audio, false);
+    this.classList.add('mute__muted');
+    audioEnabled = false;
+  }
+});
+
+/**
+ * Temporary audio toggle
+ */
+function toggleAudio(element, play) {
+  if (play) {
+    element.muted = false;
+    element.play();
+  } else {
+    element.pause();
+  }
+}
+
+
+// adjustVolume, credit - jedmao, https://stackoverflow.com/a/13149848
+async function adjustVolume(element, newVolume, {duration = 750, easing = swing, interval = 13,} = {}) {
+  const originalVolume = element.volume;
+  const delta = newVolume - originalVolume;
+
   if(audio.muted) {
     audio.muted = false;
     audio.volume = 0;
@@ -100,29 +131,6 @@ document.querySelector('#snow-button').addEventListener('click', function() {
     audio.play();
   }
 
-  if(this.classList.contains('mute__muted')) {
-    adjustVolume(audio, 0.4);
-    this.classList.remove('mute__muted');
-    audioEnabled = true;
-  } else {
-    adjustVolume(audio, 0);
-    this.classList.add('mute__muted');
-    audioEnabled = false;
-  }
-});
-
-// adjustVolume, credit - jedmao, https://stackoverflow.com/a/13149848
-async function adjustVolume(
-  element,
-  newVolume,
-  {
-      duration = 750,
-      easing = swing,
-      interval = 13,
-  } = {},
-) {
-  const originalVolume = element.volume;
-  const delta = newVolume - originalVolume;
   if(!delta || !duration || !easing || !interval) {
       element.volume = newVolume;
       return Promise.resolve();
