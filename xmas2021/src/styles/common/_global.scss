@@ -45,7 +45,8 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 4em;
+    align-content: center;
+    column-gap: 4em;
     color: var(--color--fg);
     padding: 3em 0.5em;
     box-sizing: border-box;
@@ -55,20 +56,6 @@ a {
     z-index: 50;
     position: relative;
     overflow: hidden;
-
-    @media screen and (min-width: 45em) {
-        flex-wrap: nowrap;
-
-        .card {
-            &:nth-child(1) {
-                margin-bottom: 5em;
-            }
-
-            &:nth-child(2) {
-                margin-top: 5em;
-            }
-        }
-    }
 
     .card {
         pointer-events: initial;
@@ -94,6 +81,8 @@ a {
         }
 
         &:nth-child(2) {
+            margin-top: -0.8em;
+
             .card__inner {
                 -webkit-mask-image: radial-gradient(0.75em at 1.5em 1.5em,transparent 95%,#000 100%);
                 mask-image: radial-gradient(0.7em at 2em 2.2em,transparent 95%,#000 100%);
@@ -107,10 +96,6 @@ a {
                 }
             }
         }
-    }
-
-    @media screen and (max-width: 25rem) {
-        font-size: 0.8em;
     }
 
     .card__inner {
@@ -143,6 +128,24 @@ a {
             margin-top: 0.5em;
             text-transform: uppercase;
         }
+    }
+
+    @media screen and (min-width: 45em) {
+        flex-wrap: nowrap;
+
+        .card {
+            &:nth-child(1) {
+                margin-bottom: 5em;
+            }
+
+            &:nth-child(2) {
+                margin-top: 5em;
+            }
+        }
+    }
+
+    @media screen and (max-width: 25rem) {
+        font-size: 0.8em;
     }
 }
 
