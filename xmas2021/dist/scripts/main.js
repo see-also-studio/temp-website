@@ -92,13 +92,15 @@ document.querySelector('#snow-button').addEventListener('click', function() {
   var audio = document.querySelector('#audio');
 
   if(this.classList.contains('mute__muted')) {
-    //adjustVolume(audio, 0.4);
-    toggleAudio(audio, true);
+    if (audio) {
+      toggleAudio(audio, true);
+    }
     this.classList.remove('mute__muted');
     audioEnabled = true;
   } else {
-    //adjustVolume(audio, 0);
-    toggleAudio(audio, false);
+    if (audio) {
+      toggleAudio(audio, false);
+    }
     this.classList.add('mute__muted');
     audioEnabled = false;
   }
@@ -116,6 +118,21 @@ function toggleAudio(element, play) {
   }
 }
 
+
+/**
+ * Snow/audio button toggle
+ */
+let snowButton = document.querySelector('#snow-button');
+
+class SnowButton {
+  constructor(el, audio) {
+    this.el = el;
+    this.audio = audio;
+
+  }
+
+  
+}
 
 // adjustVolume, credit - jedmao, https://stackoverflow.com/a/13149848
 async function adjustVolume(element, newVolume, {duration = 750, easing = swing, interval = 13,} = {}) {
@@ -273,11 +290,14 @@ class Snow {
 /**
  * Buttons
  */
-
-document.querySelector('#name').addEventListener('click', function(e) {
-  document.querySelector('#message').classList.add('active');
-});
-
+{
+  let nameButton = document.querySelector('#name');
+  if (nameButton) {
+    document.querySelector('#name').addEventListener('click', function(e) {
+      document.querySelector('#message').classList.add('active');
+    });
+  }
+}
 
 
 /**
